@@ -1,3 +1,3 @@
-# reddice
+# REACT ES6 Node Server - Step 6
 
-following React & Redux tutorial on Rem Zolotykh's Blog - http://remzolotykh.net/
+Webpack with hot relaod on Server
