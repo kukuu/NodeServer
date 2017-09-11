@@ -1,6 +1,7 @@
 import React from 'react';
 import timezones from '../../data/timezones';
 import map from 'lodash/map';
+//import axios from 'axios';
 
 
 class SignupForm extends React.Component {
@@ -26,6 +27,7 @@ class SignupForm extends React.Component {
     e.preventDefault();
     //form for desptching::replaces axios api post data call
     //axios is used as  in actions of action creator to dispatch and update state
+    //axios.post('/api/users', {user: this.state});
     this.props.userSignupRequest(this.state);
   }
 
