@@ -11,6 +11,7 @@ import users from './routes/users'
 
 let app = express();
 
+//ensuring post request from body9page0
 app.use(bodyParser.json());
 
 app.use('/api/users', users)
