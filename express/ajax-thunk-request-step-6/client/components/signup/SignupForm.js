@@ -5,6 +5,9 @@ import map from 'lodash/map';
 
 
 class SignupForm extends React.Component {
+  //using es6 (constructor) features to set defaults. super() allows access this.props in constructor.
+  //by calling super, you are actually calling the parent element with props parameter
+  
   constructor(props) {
     super(props);
     this.state = {
