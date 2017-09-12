@@ -31,6 +31,7 @@ class SignupForm extends React.Component {
     //form for desptching::replaces axios api post data call
     //axios is used as  in actions of action creator to dispatch and update state
     //axios.post('/api/users', {user: this.state});
+    //userSignupRequest is passed as props from its paren HOC SignupPage.
     this.props.userSignupRequest(this.state);
   }
 
