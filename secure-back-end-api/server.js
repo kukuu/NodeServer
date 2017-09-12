@@ -40,9 +40,9 @@ var jwt = require('express-jwt');
 var rsaValidation = require('auth0-api-jwt-rsa-validation');
 
 // Implement the movies API endpoint
-app.get('/movies', function(req, res){
+app.get('/movies', (req, res) => {
   // Get a list of movies and their review scores
-  var movies = [
+  const movies = [
     {title : 'Suicide Squad', release: '2016', score: 8, reviewer: 'Robert Smith', publication : 'The Daily Reviewer'},    
     {title : 'Batman vs. Superman', release : '2016', score: 6, reviewer: 'Chris Harris', publication : 'International Movie Critic'},
     {title : 'Captain America: Civil War', release: '2016', score: 9, reviewer: 'Janet Garcia', publication : 'MoviesNow'},
@@ -57,7 +57,7 @@ app.get('/movies', function(req, res){
 })
 
 // Implement the reviewers API endpoint
-app.get('/reviewers', function(req, res){
+app.get('/reviewers', (req, res) => {
   // Get a list of all of our reviewers
   var authors = [
     {name : 'Robert Smith', publication : 'The Daily Reviewer', avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/angelcolberg/128.jpg'},
@@ -74,7 +74,7 @@ app.get('/reviewers', function(req, res){
 })
 
 // Implement the publications API endpoint
-app.get('/publications', function(req, res){
+app.get('/publications', (req, res) => {
   // Get a list of publications
   var publications = [
     {name : 'The Daily Reviewer', avatar: 'glyphicon-eye-open'},
@@ -91,7 +91,7 @@ app.get('/publications', function(req, res){
 })
 
 // Implement the pending reviews API endpoint
-app.get('/pending', function(req, res){
+app.get('/pending', (req, res) => {
   // Get a list of pending movie reviews
   var pending = [
     {title : 'Superman: Homecoming', release: '2017', score: 10, reviewer: 'Chris Harris', publication: 'International Movie Critic'},
