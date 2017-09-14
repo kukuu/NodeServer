@@ -98,3 +98,81 @@ i. We’ll create a middleware function to validate the access token when our AP
  3. Scopes
 
  Scopes allow us to grant specific permissions to clients that are authorized to use our API. For our demo, we are going to create two scopes, general and admin. In an actual application, you could further narrow down the scopes by giving read or write permissions and even go as far to protect each individual route with a separate scope. We’ll keep it fairly general here though. Go ahead and create the two scopes now.
+
+
+ Once we have our scopes in place, the last thing we’ll need to do is authorize our two clients to work with the API we created. Within the MovieAnalystAPI section, navigate to the Non-Interactive Clients tab. Here you will see a list of all the clients that can interface with our API. By default, when we created our MovieAnalystAPI a test client was created for us. We’ll also see the two clients we created but they will be displayed as Unauthorized.
+
+ We create 2 scopes here, an "admin" and "general" ones. These can be grouped into arrays of permissions  and assiciated with clients as keys to attach to the endpoints they can use. By so doing we can easily manage which scopes the client will have.
+
+  For the admin client we enable both the general and admin scopes, and for the website client, we’ll just enable general access.
+
+  ```
+  ['admin'] : client has access to all 4 end points.
+  ['general']: all other non-admin clients will use this. Will al have access to only 3 genereic end points. They won't be allowed to edit or update the application.
+
+  ```
+
+  With our scopes in place, we update server.js file for our API to make some final edits. We provide the ability to check if the client has permissions to view the endpoint requested. To do this, we’ll create another middleware that will look at the decoded JWT and see if it the token has the correct scope. If it doesn’t we’ll send an appropriate forbidden message, otherwise we’ll send the data. Take a look at our implementation of this functionality below.
+
+  Here we use express's magic routing and also switch statements.  3rd signature 'next' is applied to the annonymous function, which will ascertain completion of check process and complete the route. Loops and conditions apply here as well:
+
+  ```
+  // existing jwtCheck middleware
+
+var guard = function(req, res, next){
+  // we’ll use a case switch statement on the route requested
+  switch(req.path){
+    // if the request is for movie reviews we’ll check to see if the token has general scope
+    case '/movies' : {
+      var permissions = ['general'];
+      for(var i = 0; i < permissions.length; i++){
+        if(req.user.scope.includes(permissions[i])){
+          next();
+        } else {
+          res.send(403, {message:'Forbidden'});
+        }
+      }
+      break;
+    }
+    // Same for the reviewers
+    case '/reviewers': {
+      var permissions = ['general'];
+      for(var i = 0; i < permissions.length; i++){
+        if(req.user.scope.includes(permissions[i])){
+          next();
+        } else {
+          res.send(403, {message:'Forbidden'});
+        }
+      }
+      break;
+    }
+    
+    // For the pending route, we’ll check to make sure the token has the scope of admin before returning the results.
+    case '/pending': {
+      var permissions = ['admin'];
+      console.log(req.user.scope);
+      for(var i = 0; i < permissions.length; i++){
+        if(req.user.scope.includes(permissions[i])){
+          next();
+        } else {
+          res.send(403, {message:'Forbidden'});
+        }
+      }
+      break;
+    }
+  }
+
+// existing app.use middleware
+
+```
+We enable the use of the guard middleware to the application
+
+```
+
+app.use(guard);
+
+```
+
+Our guard middleware will be called on each request and will ensure that the token has the correct scope. If it does, we’ll send the data, otherwise we’ll return a 403 Forbidden status and appropriate message.
+
+
