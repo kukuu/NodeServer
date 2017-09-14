@@ -59,14 +59,15 @@ app.get('/movies', function(req, res){
 i. We’ll create a middleware function to validate the access token when our API is called
  Note that the audience field is the identifier you gave to your API: jwtCheck
 
- '''
+ ```
   var jwtCheck = jwt({
   secret: rsaValidation(),
   algorithms: ['RS256'],
   issuer: "https://YOUR-AUTH0-DOMAIN.auth0.com/",
   audience: 'https://movieanalyst.com'
 });
-'''
+
+```
 
  ii. Enable the use of the jwtCheck middleware in all of our routes
 
