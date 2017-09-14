@@ -114,7 +114,7 @@ i. We’ll create a middleware function to validate the access token when our AP
 
   With our scopes in place, we update server.js file for our API to make some final edits. We provide the ability to check if the client has permissions to view the endpoint requested. To do this, we’ll create another middleware that will look at the decoded JWT and see if it the token has the correct scope. If it doesn’t we’ll send an appropriate forbidden message, otherwise we’ll send the data. Take a look at our implementation of this functionality below.
 
-  Here we use express's magic routing and also switch statements with 'req.path' as signature. A  3rd signature 'next' is applied to the annonymous function, which will ascertain completion of check process and complete the route. Loops and conditions apply here as well:
+  Here we use express's magic routing and also switch statements with 'req.path' as signature. A  3rd signature 'next' is applied to the annonymous function, which will ascertain completion of check process and complete the route. Loops and conditions apply here as well. Also, to look out for is the condition for evaluating the scope of the permission status/value using  'if(req.user.scope.includes(permissions[i])){ next();} else {}' in the loop.:
 
   ```
   // existing jwtCheck middleware
