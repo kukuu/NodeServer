@@ -175,6 +175,10 @@ app.use(guard);
 
 Our guard middleware will be called on each request and will ensure that the token has the correct scope. If it does, we’ll send the data, otherwise we’ll return a 403 Forbidden status and appropriate message.
 
+## Note
+
+server.js has been extendd and revisioned to final-server.js
+
 THIS CONCLUDES THE SECURE BACKEND API! HAPPY READING --) 
 
 
