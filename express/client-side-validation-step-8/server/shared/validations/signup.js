@@ -1,3 +1,5 @@
+//This is a shared component used by both client and server side
+
 import Validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
 
