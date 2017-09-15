@@ -177,7 +177,7 @@ Our guard middleware will be called on each request and will ensure that the tok
 
 ## Note
 
-server.js has been extendd and revisioned to final-server.js
+server.js has been extended and revisioned to final-server.js
 
 THIS CONCLUDES THE SECURE BACKEND API! HAPPY READING --) 
 
