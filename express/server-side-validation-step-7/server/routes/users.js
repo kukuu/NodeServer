@@ -40,6 +40,7 @@ function validateInput(data) {
 }
 
 router.post('/', (req, res) => {
+  //console.log(req.body) => checking post request from terminal
   const { errors, isValid } = validateInput(req.body);
 
   if (!isValid) {
