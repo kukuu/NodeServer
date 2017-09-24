@@ -39,7 +39,7 @@ var app = express();
 var jwt = require('express-jwt');
 var rsaValidation = require('auth0-api-jwt-rsa-validation');
 
-// Implement the movies API endpoint
+// Implement the movies API endpoint. Using es6 arrow function to return result
 app.get('/movies', (req, res) => {
   // Get a list of movies and their review scores
   const movies = [
