@@ -54,6 +54,13 @@ app.get('/movies', function(req, res){
 
 ```
 
+```
+//returned JSON  result from serveer API to Client
+
+[{"name":"The Daily Reviewer","avatar":"glyphicon-eye-open"},{"name":"International Movie Critic","avatar":"glyphicon-fire"},{"name":"MoviesNow","avatar":"glyphicon-time"},{"name":"MyNextReview","avatar":"glyphicon-record"},{"name":"Movies n' Games","avatar":"glyphicon-heart-empty"},{"name":"TheOne","avatar":"glyphicon-globe"},{"name":"ComicBookHero.com","avatar":"glyphicon-flash"}]
+
+```
+
 3. Secure end points
 
 i. We’ll create a middleware function to validate the access token when our API is called
