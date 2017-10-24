@@ -1,5 +1,7 @@
 # Node Server with express 
-## Using server side JavaScript
-## Isomorphic JavaScript
+## Server side /Isomorphic  JavaScript
+## REACT
 ## es6
 ## State Management & Immutability
+## Lodash
+## Webpack
