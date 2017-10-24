@@ -1,5 +1,5 @@
 # Node Server with express 
-## Server side /Isomorphic  JavaScript
+## Server side / Isomorphic  JavaScript
 ## REACT
 ## es6
 ## State Management & Immutability
