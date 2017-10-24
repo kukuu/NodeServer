@@ -5,3 +5,5 @@
 ## State Management & Immutability
 ## Lodash
 ## Webpack
+## Token Based Authentication
+## Mongoose/mongoDB
