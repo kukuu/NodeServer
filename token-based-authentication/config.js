@@ -3,6 +3,6 @@ module.exports = {
 	//the values may change depending on varied execution platforms
 	//create a .env file at the root level and instantiate the parameters
 	'secret': 'ilovescotchyscotch',
-	//'database': 'mongodb://your-localhost-url'
+	'database': 'mongodb://your-localhost-url'
 
 };
