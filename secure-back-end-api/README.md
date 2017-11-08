@@ -182,6 +182,8 @@ app.use(guard);
 
 Our guard middleware will be called on each request and will ensure that the token has the correct scope. If it does, we’ll send the data, otherwise we’ll return a 403 Forbidden status and appropriate message.
 
+4. /Library/WebServer/Documents/nodeServer/express/2
+
 ## Note
 
 server.js has been extended and revisioned to final-server.js
