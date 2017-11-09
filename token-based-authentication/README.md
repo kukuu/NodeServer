@@ -93,3 +93,16 @@ http://localhost:8080/api/users?token=YOUR_TOKEN_HERE
 ```
 
 Or you can send the token as a POST parameter of token.
+
+## Encryption
+2.Add BCRYPT to your node module packages and use it to generate password using "hashSync". Add a salt factor of 10 to the signature. This can be done by switching to node at the CLI (>node)
+
+require bcrypt and store in state variable, say bcrypt
+
+follow step 2. Attach hashSync to state variable in 3
+
+hashSync takes 2 parameters: a string argument to be encrypted and salt factor
+
+Go to mongodb and insert a record with your generated hashed password
+
+Be brave and try this!! Good luck--)
