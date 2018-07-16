@@ -97,11 +97,25 @@ Or you can send the token as a POST parameter of token.
 ## Encryption
 2.Add BCRYPT to your node module packages and use it to generate password using "hashSync". Add a salt factor of 10 to the signature. This can be done by switching to node at the CLI (>node)
 
-require bcrypt and store in state variable, say bcrypt
+1. require bcrypt and store in state variable, say bcrypt
 
-follow step 2. Attach hashSync to state variable in 3
+2. Attach hashSync to state variable 
 
-hashSync takes 2 parameters: a string argument to be encrypted and salt factor
+3. hashSync takes 2 parameters: a string argument to be encrypted and salt factor
+
+```
+
+// Load the bcrypt module
+var bcrypt = require('bcrypt');
+// Generate a salt
+var salt = bcrypt.genSaltSync(10);
+// Hash the password with the salt
+var hash = bcrypt.hashSync("my password", salt);
+ 
+// Finally just store the hash in your DB
+// .. code to store in Redis/Mongo/Mysql/Sqlite/Pos
+
+```
 
 Go to mongodb and insert a record with your generated hashed password
 
