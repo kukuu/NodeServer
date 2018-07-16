@@ -19,7 +19,7 @@ We'll build a quick API using Node and Express and we'll be using POSTman to tes
 
 	i. normal routes (not authenticated)
 
-	ii. route middleware to authenticate the token
+	ii. middleware to authenticate the token
 
 	iii. route to authenticate a user and password and get a token
 
