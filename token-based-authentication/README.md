@@ -57,7 +57,7 @@ iv. Add your own MongoDB database to config.js
 
 v. Start the server: node server.js
 
-vi. Create sample user by visiting: http://localhost:8080/setup
+vi. Create sample user by visiting: http://localhost:8080/setup (change the port number if necessary). Optimise by storing in parameter. See Secure Backend API and others.
 
 Once everything is set up, we can begin to use our app by creating and verifying tokens.
 
