@@ -1,5 +1,9 @@
 # Token Based Authentication
 
+Authentication is one of the big parts of every application. Security is always something that is changing and evolving. In the past, we have gone over Node authentication using the great Passport npm package.
+
+Those  used the session based authentication however, which has problems when we talk about scaling web services and creating an API that can be consumed across many devices and services.
+
 This is a simple work to demonstrate the method of authentication by verifying a token using Express route middleware.
 
 We'll build a quick API using Node and Express and we'll be using POSTman to test it. 
