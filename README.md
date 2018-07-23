@@ -8,7 +8,10 @@
 ## Token Based Authentication - JWT
 ## Mongoose/mongoDB
 
-1. For a comprehensive coding exercise on using tokens in a working application see https://github.com/kukuu/secure-restful-react-redux-web-app/blob/master/bookworm/bookworm-api/src/index.js 
+1. For a comprehensive coding exercise on using tokens in a working application see:
+
+i. https://github.com/kukuu/secure-restful-react-redux-web-app/blob/master/bookworm/bookworm-api/src/index.js 
+ii. https://github.com/kukuu/NodeServer-RESTful-apps/tree/master/secure-back-end-api
 
 2.Add BCRYPT to your node module packages and use it to generate password using "hashSync". Add a salt factor of 10 to the signature. This can be done by switching to node at the CLI (>node)
 
