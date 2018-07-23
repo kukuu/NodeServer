@@ -138,7 +138,85 @@ ii. database: the URI with username and password to your MongoDB installation
 
 ### server.js -  The Actual Node Application
 
-[to come]
+Components of file:
+
+The file:
+
+i. Grabs All the Packages. This will include the packages we installed earlier (express, body-parser, morgan, mongoose, and jsonwebtoken) and also we'll be grabbing the model and config that we created.
+
+ii. Configure Our Application We will set our important variables, configure our packages, and connect to our database here.
+
+iii. Create Basic Routes These are the unprotected routes like the home page (http://localhost:8080). We'll also create a /setup (note this is a mock)  route here so that we can create a sample user in our new database.
+
+iv. Create API Routes This includes the following routes:
+
+```
+
+POST http://localhost:8080/api/authenticate Check name and password against the database and provide a token if authentication successful. This route will not require a token because this is where we get the token.
+
+GET http://localhost:8080/api Show a random message. This route is protected and will require a token.
+
+GET http://localhost:8080/api/users List all users. This route is protected and will require a token.
+
+```
+
+And here is the start of the file (server.js). With more routing middleware to be added:
+
+```
+// =======================
+// get the packages we need ============
+// =======================
+var express     = require('express');
+var app         = express();
+var bodyParser  = require('body-parser');
+var morgan      = require('morgan');
+var mongoose    = require('mongoose');
+
+var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
+var config = require('./config'); // get our config file
+var User   = require('./app/models/user'); // get our mongoose model
+
+// =======================
+// configuration =========
+// =======================
+var port = process.env.PORT || 8080; // used to create, sign, and verify tokens
+mongoose.connect(config.database); // connect to database
+app.set('superSecret', config.secret); // secret variable
+
+// use body parser so we can get info from POST and/or URL parameters
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// use morgan to log requests to the console
+app.use(morgan('dev'));
+
+// =======================
+// routes ================
+// =======================
+// basic route
+app.get('/', function(req, res) {
+    res.send('Hello! The API is at http://localhost:' + port + '/api');
+});
+
+// API ROUTES -------------------
+// we'll get to these in a second
+
+// =======================
+// start the server ======
+// =======================
+app.listen(port);
+console.log('Magic happens at http://localhost:' + port);
+
+
+```
+Now if we start the server with:
+
+```
+node server.js
+
+```
+
+Tip: Use nodemon to have your server restart on file changes. Install nodemon using npm install -g nodemon. Then start your server with nodemon server.js.
 
 ## Getting a Token
 
