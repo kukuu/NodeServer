@@ -65,6 +65,80 @@ vi. Create sample user by visiting: http://localhost:8080/setup (change the port
 
 Once everything is set up, we can begin to use our app by creating and verifying tokens.
 
+### Set Up Our Node Application 
+
+1. Package.json
+
+```
+{
+  "name": "node-token-jwt",
+  "main": "server.js"
+}
+```
+
+2. Install all packages
+
+```
+
+$ npm install express body-parser morgan mongoose jsonwebtoken --save
+
+``` 
+
+i. express is the popular Node framework
+
+ii. mongoose is how we interact with our MongoDB database
+
+iii. morgan will log requests to the console so we can see what is happening
+
+iv. body-parser will let us get parameters from our POST requests
+
+v. jsonwebtoken is how we create and verify our JSON Web Tokens
+
+vi. The --save modifier will also save these packages to our package.json file. How convenient!
+
+
+### User Model (app/models/user.js)
+
+The user model that we define will be used when creating and getting users. To create a Mongoose model, let's create the file app/models/user.js
+
+
+```
+// get an instance of mongoose and mongoose.Schema
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+// set up a mongoose model and pass it using module.exports
+module.exports = mongoose.model('User', new Schema({ 
+    name: String, 
+    password: String, 
+    admin: Boolean 
+}));
+
+```
+
+### Config File (config.js)
+
+For this file, you will need to create MongoDB database. You can either create one locally or easily use one online at http://modulus.io/  for free. Either way, you will be able to get a URI string to use as your database configuration.
+
+```
+module.exports = {
+
+    'secret': 'ilovescotchyscotch',
+    'database': 'mongodb://noder:noderauth&54;proximus.modulusmongo.net:27017/so9pojyN'
+
+};
+
+```
+
+i. secret: used when we create and verify JSON Web Tokens
+
+ii. database: the URI with username and password to your MongoDB installation
+
+
+
+### server.js -  The Actual Node Application
+
+[to come]
 
 ## Getting a Token
 
