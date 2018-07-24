@@ -215,8 +215,12 @@ Now if we start the server with:
 node server.js
 
 ```
-
+Go to your browser and see the message from the route we created. Go to http://localhost:8080  
 Tip: Use nodemon to have your server restart on file changes. Install nodemon using npm install -g nodemon. Then start your server with nodemon server.js.
+
+### Creating a Sample User
+
+[to do]
 
 ## Getting a Token
 
