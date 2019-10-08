@@ -36,7 +36,7 @@ app.get('/setup', function(req, res) {
 	// create a sample user
 	var nick = new User({ 
 		name: 'Luca Trinca', 
-		password: 'smartboy!',
+		password: '@£*%^!',
 		admin: true 
 	});
 	nick.save(function(err) {
