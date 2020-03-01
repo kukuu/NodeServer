@@ -56,7 +56,7 @@ var guard = function(req, res, next){
   console.log(req.user);
   switch(req.path){
     case '/movies' : {
-      var permissions = ['general'];
+      var permissions = ['general'];//scope
       for(var i = 0; i < permissions.length; i++){
         if(req.user.scope.includes(permissions[i])){
           next();
@@ -67,7 +67,7 @@ var guard = function(req, res, next){
       break;
     }
     case '/reviewers': {
-      var permissions = ['general'];
+      var permissions = ['general'];//scope an array
       for(var i = 0; i < permissions.length; i++){
         if(req.user.scope.includes(permissions[i])){
           next();
@@ -78,7 +78,7 @@ var guard = function(req, res, next){
       break;
     }
     case '/publications': {
-      var permissions = ['general'];
+      var permissions = ['general'];//scope an array
       for(var i = 0; i < permissions.length; i++){
         if(req.user.scope.includes(permissions[i])){
           next();
@@ -89,7 +89,7 @@ var guard = function(req, res, next){
       break;
     }
     case '/pending': {
-      var permissions = ['admin'];
+      var permissions = ['admin'];//scope an array
       console.log(req.user.scope);
       for(var i = 0; i < permissions.length; i++){
         if(req.user.scope.includes(permissions[i])){
