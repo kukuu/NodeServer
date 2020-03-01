@@ -123,7 +123,7 @@ For this file, you will need to create MongoDB database. You can either create o
 ```
 module.exports = {
 
-    'secret': 'ilovescotchyscotch',
+    'secret': 'ilovejwttoken!!*',
     'database': 'mongodb://noder:noderauth&54;proximus.modulusmongo.net:27017/so9pojyN'
 
 };
