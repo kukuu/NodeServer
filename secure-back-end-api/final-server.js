@@ -41,6 +41,8 @@ var jwt = require('express-jwt');
 var rsaValidation = require('auth0-api-jwt-rsa-validation');
 
 console.log(rsaValidation());
+
+//jwt middleware
 var jwtCheck = jwt({
   secret: rsaValidation(),
   algorithms: ['RS256'],
@@ -48,6 +50,8 @@ var jwtCheck = jwt({
   audience: 'YOUR-API-IDENTIFIER'
 });
 
+
+//guard  middleware
 var guard = function(req, res, next){
   console.log(req.user);
   switch(req.path){
@@ -98,6 +102,8 @@ var guard = function(req, res, next){
     }
   }
 };
+
+//the guard is the last in the chain.
 app.use(jwtCheck);
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
